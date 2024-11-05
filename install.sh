@@ -1,9 +1,8 @@
 #!/bin/bash
 
+# Завантаження загальних функцій (якщо потрібні)
 source <(curl -s https://raw.githubusercontent.com/R1M-NODES/utils/master/common.sh)
 printLogo
-
-#!/bin/bash
 
 # Встановлення Rust
 echo "Installing Rust..."
@@ -15,9 +14,13 @@ echo "Rust version: $(rustc --version)"
 echo "Installing Foundry and Cast..."
 curl -L https://foundry.paradigm.xyz | bash
 
-# Оновлення PATH для доступу до foundryup та cast
+# Оновлення PATH для доступу до Foundry та Cast у поточному сеансі
 export PATH="$HOME/.foundry/bin:$PATH"
-source "$HOME/.foundry/bin/foundryup"  # Виклик foundryup для встановлення останніх оновлень
+echo 'export PATH="$HOME/.foundry/bin:$PATH"' >> ~/.profile  # Додає в PATH для наступних сеансів
+source ~/.profile  # Завантаження оновленого PATH
+
+# Завантаження та встановлення останньої версії Foundry
+foundryup
 
 echo "Foundry and Cast installed."
 
