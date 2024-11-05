@@ -6,7 +6,7 @@ printLogo
 
 # Встановлення копонентів
 sudo apt update
-sudo apt install make
+sudo apt install -y make pkg-config libssl-dev build-essential
 ls /usr/bin/make
 
 # Встановлення Rust
@@ -50,3 +50,4 @@ echo "Keystores are saved in ~/.foundry/keystores"
 echo "Starting the quiz..."
 cd aligned_layer/examples/zkquiz
 make answer_quiz KEYSTORE_PATH=~/.foundry/keystores/"$KEYSTORE_NAME"
+
