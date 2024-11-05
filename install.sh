@@ -44,7 +44,6 @@ echo "- Quicknode Faucet"
 echo "Keystores are saved in ~/.foundry/keystores"
 
 # Виконання квізу
-# Виконання квізу
 echo "Starting the quiz..."
 if [ -d "examples/zkquiz" ]; then
     cd examples/zkquiz && make answer_quiz KEYSTORE_PATH=~/.foundry/keystores/my_keystore
