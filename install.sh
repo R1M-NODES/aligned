@@ -4,6 +4,11 @@
 source <(curl -s https://raw.githubusercontent.com/R1M-NODES/utils/master/common.sh)
 printLogo
 
+# Встановлення копонентів
+sudo apt update
+sudo apt install make
+ls /usr/bin/make
+
 # Встановлення Rust
 echo "Installing Rust..."
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
