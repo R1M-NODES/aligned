@@ -7,7 +7,7 @@ bash <(curl -s https://raw.githubusercontent.com/R1M-NODES/aligned/master/instal
 <b> Full Delete </b>
 
 ```
-rm -rf cargo
+rm -rf .cargo
 rm -rf .foundry
 rm -rf .rustup
 rm -rf aligned_layer
