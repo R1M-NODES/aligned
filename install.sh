@@ -9,11 +9,8 @@ sudo apt update
 sudo apt install -y make pkg-config libssl-dev build-essential
 ls /usr/bin/make
 
-# Встановлення Rust
-echo "Installing Rust..."
-curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
-source "$HOME/.cargo/env"  # Додає Rust в PATH
-echo "Rust version: $(rustc --version)"
+# Завантаження та виконання rush-install.sh
+source <(curl -s https://raw.githubusercontent.com/R1M-NODES/utils/master/rush-install.sh)
 
 # Встановлення Foundry і Cast
 echo "Installing Foundry and Cast..."
