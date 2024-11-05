@@ -3,6 +3,8 @@
 source <(curl -s https://raw.githubusercontent.com/R1M-NODES/utils/master/common.sh)
 printLogo
 
+#!/bin/bash
+
 # Встановлення Rust
 echo "Installing Rust..."
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
@@ -12,7 +14,11 @@ echo "Rust version: $(rustc --version)"
 # Встановлення Foundry і Cast
 echo "Installing Foundry and Cast..."
 curl -L https://foundry.paradigm.xyz | bash
-foundryup  # Завантажує останню версію Foundry
+
+# Оновлення PATH для доступу до foundryup та cast
+export PATH="$HOME/.foundry/bin:$PATH"
+source "$HOME/.foundry/bin/foundryup"  # Виклик foundryup для встановлення останніх оновлень
+
 echo "Foundry and Cast installed."
 
 # Клонування репозиторію
