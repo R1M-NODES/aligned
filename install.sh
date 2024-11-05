@@ -44,8 +44,13 @@ echo "- Quicknode Faucet"
 echo "Keystores are saved in ~/.foundry/keystores"
 
 # Виконання квізу
+# Виконання квізу
 echo "Starting the quiz..."
-cd aligned_layer/examples/zkquiz
-make answer_quiz KEYSTORE_PATH=~/.foundry/keystores/my_keystore
+if [ -d "examples/zkquiz" ]; then
+    cd examples/zkquiz && make answer_quiz KEYSTORE_PATH=~/.foundry/keystores/my_keystore
+else
+    echo "Directory examples/zkquiz does not exist. Please check the path."
+    exit 1
+fi
 
 
