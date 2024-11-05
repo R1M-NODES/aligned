@@ -43,5 +43,5 @@ echo "Keystores are saved in ~/.foundry/keystores"
 
 # Виконання квізу
 echo "Starting the quiz..."
-cd examples/zkquiz
+cd aligned_layer/examples/zkquiz
 make answer_quiz KEYSTORE_PATH=~/.foundry/keystores/"$KEYSTORE_NAME"
