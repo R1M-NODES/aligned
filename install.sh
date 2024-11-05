@@ -28,29 +28,11 @@ echo "Foundry and Cast installed."
 echo "Cloning the aligned_layer repository..."
 git clone https://github.com/yetanotherco/aligned_layer.git && cd aligned_layer
 
-# Вибір між створенням нового keystore або імпортом існуючого
-echo "Select an option:"
-echo "1. Create a new keystore"
-echo "2. Import an existing keystore"
-read -p "Enter 1 or 2: " choice
-
+# Створення keystore
+echo "Creating a new keystore..."
+cast wallet new-mnemonic > mnemonic.txt
 KEYSTORE_NAME="my_keystore"
-
-if [ "$choice" = "1" ]; then
-    # Створення нового keystore
-    echo "Creating a new keystore..."
-    cast wallet new-mnemonic > mnemonic.txt
-    cast wallet import --interactive "$KEYSTORE_NAME"
-    echo "Keystore created and saved as $KEYSTORE_NAME."
-elif [ "$choice" = "2" ]; then
-    # Імпорт існуючого keystore
-    read -p "Enter the path to your keystore file: " keystore_path
-    cast wallet import --interactive "$keystore_path"
-    echo "Keystore imported from $keystore_path."
-else
-    echo "Invalid choice. Exiting."
-    exit 1
-fi
+cast wallet import --interactive "$KEYSTORE_NAME"
 
 # Інформування користувача про поповнення keystore
 echo "To complete setup, please fund the keystore with one of the following faucets:"
@@ -62,8 +44,4 @@ echo "Keystores are saved in ~/.foundry/keystores"
 # Виконання квізу
 echo "Starting the quiz..."
 cd examples/zkquiz
-if [ "$choice" = "1" ]; then
-    make answer_quiz KEYSTORE_PATH=~/.foundry/keystores/"$KEYSTORE_NAME"
-else
-    make answer_quiz KEYSTORE_PATH="$keystore_path"
-fi
+make answer_quiz KEYSTORE_PATH=~/.foundry/keystores/"$KEYSTORE_NAME"
