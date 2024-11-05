@@ -15,7 +15,7 @@ rm -rf $HOME/.foundry/keystores/wallet
 ```
 cast wallet import --interactive wallet
 
-cd examples/zkquiz && make answer_quiz KEYSTORE_PATH=~/.foundry/keystores/my_keystore
+cd aligned_layer/examples/zkquiz && make answer_quiz KEYSTORE_PATH=~/.foundry/keystores/my_keystore
 ```
 
 <b> Delete Full </b>
